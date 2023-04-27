@@ -34,7 +34,7 @@ def av1pyconvert(orig_folder_path, enc_folder_path, crf_value):
 
         # Set the encoding command
         stream = ffmpeg.input(in_file)
-        stream = ffmpeg.output(stream, out_file, map='0', acodec='copy', vcodec=codec, preset=preset, crf=crf, threads=threads)
+        stream = ffmpeg.output(stream, out_file, acodec='copy', vcodec=codec, preset=preset, crf=crf, threads=threads).global_args('-map', '0:v', '-map', '0:a')
 
         # Run the encoding process
         ffmpeg.run(stream, cmd='ffmpeg', overwrite_output=True)
