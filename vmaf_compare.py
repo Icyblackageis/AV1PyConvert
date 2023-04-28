@@ -1,6 +1,5 @@
 import argparse
 from pathlib import Path
-
 from ffmpeg_quality_metrics import FfmpegQualityMetrics
 
 
