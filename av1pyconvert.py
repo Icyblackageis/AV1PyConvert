@@ -1,10 +1,10 @@
 import os
 from pathlib import Path
+
 import ffmpeg
-from vmaf_compare import compare_videos, file_size_compare
 
 
-def av1pyconvert(orig_folder_path, enc_folder_path, crf_value):
+def av1pyconvert(orig_folder_path, enc_folder_path, crf_value, preset_value):
     # Set the paths to the original and output folders
     orig_folder = Path(orig_folder_path)
     enc_folder = Path(enc_folder_path)
@@ -19,7 +19,7 @@ def av1pyconvert(orig_folder_path, enc_folder_path, crf_value):
     crf = crf_value
 
     # Set the encoding parameters
-    preset = "6"  # The encoding preset to use. Lower values result in higher quality and smaller files.
+    preset = preset_value  # The encoding preset to use. Lower values result in higher quality and smaller files.
     threads = os.cpu_count()  # The number of threads to use for encoding. Use all available CPU cores.
 
     # Loop through all video files in the original folder and encode them
@@ -34,11 +34,7 @@ def av1pyconvert(orig_folder_path, enc_folder_path, crf_value):
 
         # Set the encoding command
         stream = ffmpeg.input(in_file)
-        stream = ffmpeg.output(stream, out_file, acodec='copy', vcodec=codec, preset=preset, crf=crf, threads=threads).global_args('-map', '0:v', '-map', '0:a')
+        stream = ffmpeg.output(stream, out_file, acodec='copy', vcodec=codec, preset=preset, crf=crf, threads=threads, tune='none').global_args('-map', '0:v', '-map', '0:a?')
 
         # Run the encoding process
         ffmpeg.run(stream, cmd='ffmpeg', overwrite_output=True)
-
-    # Call the vmaf_compare.py script to compare the encoded file to the original file
-    compare_videos(orig_folder, enc_folder)
-    file_size_compare(orig_folder, enc_folder)
