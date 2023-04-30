@@ -10,10 +10,13 @@ def av1pyconvert(orig_folder_path, enc_folder_path, crf_value, preset_value):
     # Set the paths to the original and output folders
     orig_folder = Path(orig_folder_path)
     enc_folder = Path(enc_folder_path)
+
     # Create the output folder if it doesn't exist
     enc_folder.mkdir(parents=True, exist_ok=True)
+
     # Set the codec to use for encoding
     codec = "libsvtav1"
+
     # Use the passed CRF value
     crf = crf_value
 
@@ -28,6 +31,7 @@ def av1pyconvert(orig_folder_path, enc_folder_path, crf_value, preset_value):
         # Get the input and output file paths
         in_file = str(orig_file)
         out_file = str(enc_folder / orig_file.relative_to(orig_folder))
+
         # Convert out_file to a Path object and create the output folder if it doesn't exist
         out_file_path = Path(out_file)
         out_file_path.parent.mkdir(parents=True, exist_ok=True)

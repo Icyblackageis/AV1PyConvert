@@ -1,0 +1,2 @@
+ffmpeg_python==0.2.0
+ffmpeg_quality_metrics==3.2.1

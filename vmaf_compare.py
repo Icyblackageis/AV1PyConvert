@@ -15,10 +15,13 @@ def compare_videos(ref_folder, enc_folder):
 
     # Find matching encoded video files in the encoded folder and compare them
     for ref_file in ref_files:
+
         # Get the name of the reference video file
         ref_filename = ref_file.name
+
         # Find the matching encoded video file
         enc_file = enc_folder / ref_file.relative_to(ref_folder)
+
         # Check if the encoded video file exists
         if enc_file.exists():
             print(f"Comparing Ref {ref_filename} and Enc {enc_file.name}")
@@ -61,10 +64,6 @@ def file_size_compare(ref_folder, enc_folder):
 
             print(f"Size Difference: {size_diff / 1024:.2f} MegaBytes")
             print(f"Relative File Size Percentage: {percentage:.2f}%")
-
-            print(f"Orginal file size: {ref_size / 1024} megabytes")
-            print(f"New file size: {enc_size / 1024} megabytes")
-            print(f"Space saved: {size_diff / 1024} megabytes")
     return size_diff, percentage
 
 
