@@ -35,8 +35,9 @@ def av1pyconvert(orig_file_path, enc_file_path, crf_value, preset_value):
         preset=preset,
         crf=crf,
         threads=threads,
-    ).global_args("-map", "0:v", "-map", "0:a?", "-loglevel", "quiet", "-stats", "-tune", "none")
+    ).global_args("-map", "0:v", "-map", "0:a?", "-loglevel", "quiet", "-stats")
 
     # Run the encoding process
     ffmpeg.run(stream, cmd="ffmpeg", overwrite_output=True)
+    
 

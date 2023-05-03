@@ -37,7 +37,6 @@ def compare_videos(ref_file_path, enc_file_path):
     return vmaf_scores
 
 
-
 def file_size_compare(ref_file_path, enc_file_path):
     ref_file = Path(ref_file_path)
     enc_file = Path(enc_file_path)
@@ -50,11 +49,12 @@ def file_size_compare(ref_file_path, enc_file_path):
         enc_size = enc_file.stat().st_size
         size_diff = ref_size - enc_size
         percentage = (enc_size / ref_size) * 100
+        encoded_file_size = int(enc_size)
 
     print(f"Size Difference: {size_diff / 1024:.2f} MegaBytes")
     print(f"Relative File Size Percentage: {percentage:.2f}%")
 
-    return size_diff, percentage
+    return size_diff, percentage, encoded_file_size
 
 
 if __name__ == "__main__":
