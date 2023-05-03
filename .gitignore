@@ -1,1 +1,6 @@
 /ffmpeg.exe
+/.vscode/
+/__pycache__/
+/settings.json
+/.pytest_cache/
+/jobs.json
