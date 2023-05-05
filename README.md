@@ -2,12 +2,12 @@ This project aims to use python to convert and compare multiple video files in f
 
 1. This project requires a FFMPEG Binary with libsvtav1 codec.
 2. Place FFMPEG Binary in the folder containing AV1PyConvert.
-2_5. PS or CMD: pip -r requirements.txt
-3. Then give it a path to master copy of your media.
-4. Pass a new location where you want it to encode your media!
-5. Wait for it to finish converting everything in your folder to new AV1 Codec!
-6. Read VMAF, PSNR, and SSIM scores the closer to 100 for VMAF the better the quality!
-7. Profit !!!
+3. PS or CMD: pip -r requirements.txt
+4. Then give it a path to master copy of your media.
+5. Pass a new location where you want it to encode your media!
+6. Wait for it to finish converting everything in your folder to new AV1 Codec!
+7. Read VMAF, PSNR, and SSIM scores the closer to 100 for VMAF the better the quality!
+8. Profit !!!
 
 This master branch should work as it stands so long you follow the steps above!
 
