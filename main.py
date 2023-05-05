@@ -145,9 +145,6 @@ def adaptive_av1pyconvert(
                     store_job_info(
                         orig_file, enc_file, encoded_file_size, crf, preset_value
                     )
-                    print(
-                        f"VMAF Score: {avg_vmaf:.2f}%, File Size Difference: {size_diff:.2f} MB, Percentage Of Orignal File Size: {percentage:.2f}%"
-                    )
                     # Update the overall progress bar
                     progress.update(
                         overall_task_id,
@@ -176,6 +173,9 @@ def adaptive_av1pyconvert(
                         6, preset_value - 1
                     )  # Ensure the preset value does not go below 6
                     crf_count = {}  # Reset the CRF count dictionary
+        print(
+            f"VMAF Score: {avg_vmaf:.2f}%, File Size Difference: {size_diff:.2f} MB, Percentage Of Orignal File Size: {percentage:.2f}%"
+        )
 
 
 orig_folder_path = (
